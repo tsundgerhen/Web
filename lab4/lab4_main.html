@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <article>
+            <header align="middle">
+                <div id="header">Тэргэлийн лабарторын 4-р ажилд тавтай морилно уу</div><br><br>
+                <audio controls autoplay>
+                    <source src="RainAudio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </header>
+        </article>
+        <section class="container">
+            
+            <main>
+                <video width="800" height="450" controls>
+                    <!--<source src="ChippiChippi.mp4" type="video/mp4">-->
+                    <source src="Rain.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <canvas id="myCanvas" width="800" height="450"></canvas>
+                <script>
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+    
+                    var grdSky = ctx.createLinearGradient(0,0,400,0);
+                    grdSky.addColorStop(0, 'rgba(135, 206, 235, 0.8)');
+                    grdSky.addColorStop(1, 'rgba(25, 25, 112, 0.8)');
+    
+                    ctx.fillStyle = grdSky;
+                    ctx.fillRect(0, 0, 800, 450);
+    
+                    var grdGound = ctx.createLinearGradient(0,0,400,0);
+                    grdGound.addColorStop(0, 'rgba(50, 205, 50, 1)');
+                    grdGound.addColorStop(1, 'rgba(34, 47, 61, 1)');
+                    ctx.fillStyle = grdGound;
+                    ctx.fillRect(0, 300, 800, 150);
+    
+                    drawCircle(20, 20, 90, 'rgba(255, 255, 0, 1)', 'rgba(255, 255, 0, 0.6)');
+                    drawCircle(780, 20, 90, 'rgba(211, 211, 211, 1)', 'rgba(211, 211, 211, 0.6)');
+                    drawCircle(720, 50, 12, 'rgba(150, 150, 150, 0.3)', 'rgba(150, 150, 150, 1)');
+                    drawCircle(750, 30, 9, 'rgba(150, 150, 150, 0.3)', 'rgba(150, 150, 150, 1)');
+                    drawCircle(780, 90, 15, 'rgba(150, 150, 150, 0.3)', 'rgba(150, 150, 150, 1)');
+                    drawCircle(770, 60, 12, 'rgba(150, 150, 150, 0.3)', 'rgba(150, 150, 150, 1)');
+                    drawCircle(790, 10, 18, 'rgba(150, 150, 150, 0.3)', 'rgba(150, 150, 150, 1)');
+                    
+                    function drawCircle(x, y, size, color1, color2) {
+                        ctx.beginPath();
+                        var gradient = ctx.createRadialGradient(x, y, size/3*2, x, y, size);
+                
+                        gradient.addColorStop(0, color1);
+                        gradient.addColorStop(1, color2);
+                        
+                        ctx.beginPath();
+                        ctx.arc(x, y, size, 0, 2 * Math.PI);
+                        ctx.fillStyle = gradient;
+                        ctx.fill();
+                    }
+    
+                    drawCloud(50, 50, 10, 'rgba(255, 255, 255, 1)');
+                    drawCloud(190, 100, 16, 'rgba(255, 255, 255, 1)');
+                    drawCloud(250, 50, 9, 'rgba(255, 255, 255, 1)');
+    
+                    drawCloud(450, 50, 5, 'rgba(200, 200, 220, 0.6)');
+                    drawCloud(550, 80, 7, 'rgba(200, 200, 220, 0.6)');
+                    drawCloud(650, 50, 5, 'rgba(200, 200, 220, 0.6)');
+                
+                    function drawCloud(x, y, size, color) {
+                        ctx.beginPath();
+                        ctx.arc(x, y, size, 0, Math.PI * 2);
+                        ctx.arc(x + size * 0.7, y - size * 0.5, size * 0.8, 0, Math.PI * 2);
+                        ctx.arc(x + size * 1.5, y - size * 0.2, size * 0.7, 0, Math.PI * 2);
+                        ctx.arc(x + size * 2, y, size, 0, Math.PI * 2);
+                        ctx.arc(x + size * 1.5, y + size * 0.5, size * 0.7, 0, Math.PI * 2);
+                        ctx.arc(x + size * 0.7, y + size * 0.5, size * 0.8, 0, Math.PI * 2);
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+    
+                    drawTriangleMountain(250, 200, 200, 300, 300, 300, 'rgba(66, 58, 53, 1)');
+                    drawTriangleMountain(150, 100, 50, 300, 250, 300, 'rgba(66, 58, 53, 1)');
+                    drawTriangleMountain(650, 150, 450, 300, 750, 300, 'rgba(46, 42, 83, 1)');
+                    drawTriangleMountain(450, 250, 380, 300, 550, 300, 'rgba(46, 42, 83, 1)');
+                    
+                    drawSemiCircleMountain(50, 300, 100, 'rgba(66, 58, 53, 1)');
+    
+                    function drawTriangleMountain(x1, y1, x2, y2, x3, y3, color) {
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y1);
+                        ctx.lineTo(x2, y2);
+                        ctx.lineTo(x3, y3);
+                        ctx.closePath();
+                        ctx.strokeStyle = 'rgba(0, 0, 0, 0)'; 
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                    }
+                    
+                    function drawSemiCircleMountain(x, y, radius, color){
+                        ctx.beginPath();
+                        ctx.arc(x, y, radius, 0, Math.PI, true);
+                        ctx.closePath();
+                        ctx.lineWidth = 0;
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                        ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
+                        context.stroke();
+                    }
+                    
+                </script>
+                <script>
+                    var canvas = document.getElementById('myCanvas');
+                    var ctx = canvas.getContext('2d');
+                    drawHuman(100, 350, 10, 'rgba(255, 204, 153, 1)');
+                    drawHuman(600, 300, 8, 'rgba(229, 176, 146, 0.89)');
+                    function drawHuman(x, y, size, color){
+                        ctx.beginPath();
+                        ctx.arc(x, y, size, 0, Math.PI*2);
+                        ctx.closePath();
+                        ctx.strokeStyle = 'rgba(0, 0, 0, 0)'; 
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                        drawBodyPart(x-size/6, y+size, x-size/6, y+size+size/4, x-size/6-size*2-size/4, y+size/4, x-size/6-size*2, y, color, size); //left arm
+                        drawBodyPart(x+size/6, y+size*4, x+size/6, y+size*4-size/2, x+size/6-size*2, y+size*6-size/2, x+size/6-size*2, y+size*6, color, size);  //left leg
+                        drawBodyPart(x-size/6, y+size, x-size/6, y+size+size/4, x+size/6+size*2+size/4, y+size/4, x+size/6+size*2, y, color, size); //right arm
+                        drawBodyPart(x-size/6, y+size*4, x-size/6, y+size*4-size/2, x+size/6+size*2, y+size*6-size/2, x+size/6+size*2, y+size*6, color, size);  //right leg
+                        drawBodyPart(x-size/6, y, x+size/6, y, x+size/6, y+size*4, x-size/6, y+size*4, color, size);
+                    }
+                    
+                    function drawBodyPart(x1, y1, x2, y2, x3, y3, x4, y4, color, size){
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y1);
+                        ctx.lineTo(x2, y2);
+                        ctx.lineTo(x3, y3);
+                        ctx.lineTo(x4, y4);
+                        ctx.closePath();
+                        ctx.strokeStyle = 'rgba(0, 0, 0, 0)'; 
+                        ctx.fillStyle = color;
+                        ctx.fill();
+                    }
+                </script>
+                
+            </main>
+            <aside class="sidebar">
+                <svg width="300" height="900">
+                    <rect width="300" height="900" style="fill:rgba(135, 206, 235, 0.8)";/>
+                    <defs>
+                        <radialGradient id="sunGradient">
+                            <stop offset="80%" stop-color="rgba(255, 255, 0, 1)"/>
+                            <stop offset="30%" stop-color="rgba(255, 255, 0, 0.6)"/>
+                        </radialGradient>
+                    </defs>
+                    <rect y="400" width="300" height="500" style="fill:rgba(102, 51, 0, 1)";/>
+                    <circle cx="50" cy="50" r="100" fill="url(#sunGradient)" />
+                    <rect x="50" y="500" width="150" height="70" style="fill:rgba(156, 42, 32, 1)";/> 
+                    <polygon points="48, 500 125, 430 202, 500" style="fill:rgba(51, 68, 85, 1)";/>
+                    <rect x="70" y="515" width="30" height="40" style="fill:rgba(173, 216, 230, 0.7)";/>
+                    <rect x="110" y="510" width="30" height="60" style="fill:rgba(100, 60, 30, 0.7); stroke-width:3; stroke:rgba(100, 60, 30, 1)"/>
+                    <circle cx="135", cy="540" r="3" fill="rgba(192, 192, 192, 1)" />
+                    
+                </svg>
+            </aside>
+        </section>
+        <footer>
+            <div>Тэргэлийн лабарторын ажилтай танилцсанд баярлалаа!</div>
+        </footer>
+    </body>
+</html>

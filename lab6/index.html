@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаб 6</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <svg width="1200" height="675">
+            <defs>
+                <linearGradient id="skyGradient"  x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(135, 206, 235, 0.8)"/>
+                    <stop offset="50%" stop-color="rgba(25, 25, 112, 1)"/>
+                </linearGradient>
+            </defs>
+            <rect width="1200" height="675" fill="url(#skyGradient)";/><!--backgound & sky-->
+            <defs> <!--sunGradient-->
+                <radialGradient id="sunGradient">
+                    <stop offset="80%" stop-color="rgba(255, 255, 0, 1)"/>
+                    <stop offset="30%" stop-color="rgba(255, 255, 0, 0.6)"/>
+                </radialGradient>
+            </defs>
+            <defs>
+                <linearGradient id="groundGradient"  x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(50, 205, 50, 1)"/>
+                    <stop offset="50%" stop-color="rgba(34, 47, 61, 1)"/>
+                </linearGradient>
+            </defs>
+            <defs> <!--moonGradient-->
+                <radialGradient id="moonGradient">
+                    <stop offset="80%" stop-color="rgba(211, 211, 211, 1)"/>
+                    <stop offset="30%" stop-color="rgba(211, 211, 211, 0.6)"/>
+                </radialGradient>
+            </defs>
+            <rect  y="400" width="1200" height="275" style="fill:url(#groundGradient)";/> <!--ground-->
+            <circle class="sun" cx="50" cy="50" r="100" fill="url(#sunGradient)" /> <!--sun-->
+            <circle class="moon" cx="1150" cy="50" r="100" fill="url(#moonGradient)" /> <!--moon-->
+            <!--start of house--> 
+            <rect class="house" x="50" y="500" width="150" height="70" style="fill:rgba(156, 42, 32, 1)";/> <!--house body--> 
+            <polygon class="house" points="48, 500 125, 430 202, 500" style="fill:rgba(51, 68, 85, 1)";/> <!--house roop top--> 
+            <rect class="houseWindow" x="70" y="515" width="30" height="40" style="fill:rgba(173, 216, 230, 0.7); stroke-width:3; stroke:rgba(100, 60, 30, 1)";/> <!--house window--> 
+            <rect class="houseDoor" x="110" y="510" width="30" height="59" style="fill:rgba(100, 60, 30, 0.7); stroke-width:3; stroke:rgba(100, 60, 30, 1)"/> <!--house door--> 
+            <circle class="houseDoor" cx="135", cy="540" r="3" fill="rgba(192, 192, 192, 1)" /> <!--door handle-->
+            <rect class="houseWindow" x="70" y="534" width="30" height="2" style="fill:rgba(100, 60, 30, 1)"/> <!--window frame-->
+            <rect class="houseWindow" x="84" y="515" width="2" height="40" style="fill:rgba(100, 60, 30, 1)"/> <!--window frame-->
+            <!--end of house--> 
+            <!--draw cloud start-->
+            <circle class="cloud" cx="200" cy="50" r="20" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="200" cy="30" r="14" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="220" cy="50" r="18" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="180" cy="50" r="16" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="190" cy="35" r="15" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <!--end of drawing cloud-->
+            <!--draw cloud start-->
+            <circle class="cloud" cx="300" cy="70" r="20" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="300" cy="50" r="14" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="320" cy="70" r="18" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="280" cy="70" r="16" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="290" cy="55" r="15" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <!--end of drawing cloud-->
+            <!--draw cloud start-->
+            <circle class="cloud" cx="350" cy="100" r="20" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="350" cy="80" r="14" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="370" cy="100" r="18" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="330" cy="100" r="16" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="340" cy="85" r="15" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <!--end of drawing cloud-->
+            <!--draw cloud start-->
+            <circle class="cloud" cx="100" cy="100" r="20" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="100" cy="80" r="14" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="120" cy="100" r="18" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="80" cy="100" r="16" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <circle class="cloud" cx="90" cy="85" r="15" fill="rgba(240, 240, 240, 1)" /> <!-- Cloud part -->
+            <!--end of drawing cloud-->
+            <!--draw stars-->
+            <polygon class="star" points="710,52 705,72.5 723.75,57.5 701.25,57.5 720,72.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <polygon class="star" points="760,52 755,72.5 773.75,57.5 751.25,57.5 770,72.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <polygon class="star" points="910,52 905,72.5 923.75,57.5 901.25,57.5 920,72.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <polygon class="star" points="1010,82 1005,102.5 1023.75,87.5 1001.25,87.5 1020,102.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <polygon class="star" points="810,22 805,42.5 823.75,27.5 801.25,27.5 820,42.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <polygon class="star" points="810,102 805,122.5 823.75,107.5 801.25,107.5 820,122.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <polygon class="star" points="710,152 705,172.5 723.75,157.5 701.25,157.5 720,172.5" fill="rgba(255, 255, 255, 0.5)"/>
+            <!--draw meteor-->
+            <circle class="meteor" cx="150" cy="-200" r="50" fill="rgb(73,60,60)"/>
+        </svg>
+    </body>
+</html>

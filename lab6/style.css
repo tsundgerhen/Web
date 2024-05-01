@@ -1,0 +1,94 @@
+@keyframes changeColor {
+    0% {
+        fill: rgba(240, 240, 240, 1)
+    }
+    90% {
+        fill: rgba(200, 100, 220, 1)
+    }
+    100% {
+        fill: rgba(240, 240, 240, 1)
+    }
+}
+@keyframes left-to-right {
+    100% {
+        transform: translateX(100%);
+    }
+}
+@keyframes sun-moon-rotation {
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes scale {
+    0% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1.3);
+    }
+}
+@keyframes moveItem {
+    0% {
+        transform: translate(0s);
+    }
+    100% {
+        transform: translate(300px, -150px);
+    }
+}
+@keyframes drop {
+    0% {
+        transform: translate(0s);
+    }
+    100% {
+        transform: translate(0px, 680px);
+    }
+}
+@keyframes skewItem {
+    0% {
+        transform: skew(0)
+    }
+    100% {
+        transform: skew(10deg, 10deg)
+    }
+}
+@keyframes matrixItem {
+    100% {
+        transform: matrix(1.2, 0.2, -1, 0.9, 0, 20);
+    }
+}
+.cloud {
+    animation: changeColor 10s infinite linear, left-to-right 6s infinite linear;
+}
+
+.star {
+    animation: scale 2s infinite;
+}
+.sun {
+    animation: sun-moon-rotation 5s infinite;
+}
+.house {
+    animation: skewItem 3s infinite 2s;
+}
+.moon {
+    animation: matrixItem 3s infinite;
+}
+.houseDoor{
+    animation:  moveItem 3s infinite 2s;
+}
+.houseWindow{
+    animation: matrixItem 3s  infinite 2s;
+
+}
+.meteor{
+    animation: drop 3s infinite ;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}

@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cac4c4;
+}
+
+.header {
+    width: 100%; /* Adjusted width */
+    display: flex;
+    background-color: #696565;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px; /* Added padding for better spacing */
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.navbar ul li {
+    display: inline-block;
+    padding: 10px 20px;
+}
+.logo {
+    padding-top: 0;
+    padding-left: 20px;
+}
+
+.main {
+    display: grid;
+    gap: 10px;
+    margin: auto;
+}
+
+.main .section {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.main .section .post {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.main .section .post img {
+    width: auto; /* Set width to auto to maintain aspect ratio */
+    height: 400px; /* Increase height to make the images taller */
+    margin: 20px;
+    margin-left: 10px;
+    border-radius: 30px;
+}
+
+.post h3 {
+    margin-left: 25px;
+}
+
+.post .additional-info {
+    display: none; /* Hide additional-info on small screens */
+}
+
+.main .section .post p {
+    font-size: 15px;
+    margin-left: 25px;
+    margin-top: -20px;
+}
+
+.nav {
+    display: none; /* Hide nav by default */
+}
+
+.navbar-header {
+    display: none; /* Hide navbar-header by default */
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .nav {
+        display: flex; /* Display nav when screen width is between 481px and 768px */
+    }
+}

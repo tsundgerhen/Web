@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+</head>
+<body>
+    <h2>Enter Your Information</h2>
+    <form id="myForm">
+        <table width="900px"  bgcolor="lightyellow">
+            <tr align="middle">
+                <td><img src="images.jpeg-22.jpg" alt="LOGO" width="90" height="90"></td>
+                <td></td>
+                <td colspan="5" heigh="90px">Дэгдээхэй Их Сургуулийн <br> Оюутаны Хувийн мэдээллийн маягт <hr></td>
+                <td width="150px"></td>
+            </tr>
+            <tr align="middle">
+                <td></td>
+                <td>
+                    <label for="img"><strong>Цээж зураг</strong></label><br>
+                </td>
+                <td>
+                    <img src="person.png" alt="img upload" width="100px"><br><br>
+                    <input type="file" name="img" id="img"><hr>
+                </td>
+            </tr>
+            <tr align="middle">
+                <td></td>
+                <td>
+                    <label for="studentCode" ><strong>Оюутаны код</strong></label><br><br><br>
+                    <label for="sureName"><strong>Ургийн овог</strong></label><br><br><br>
+                    <label for="lastName"><strong>Овог</strong></label><br><br><br>
+                    <label for="firstName"><strong>Нэр</strong></label><br><br><br>
+                    <label for="birthday"><strong>Төрсөн өдөр</strong></label><br><br><br>
+                    <label for="gender"><strong>Хүйс</strong></label><br>
+                </td>
+                <td>
+                    <br><br><input type="text" name="studentCode" id="studentCode" width="300px" placeholder="Оюутаны код" maxlength="10"><br><br><br>
+                    <input type="text" name="surName" id="surName" placeholder="Ургийн овог" maxlength="20"><br><br><br>
+                    <input type="text" name="lastName" id="lastName" placeholder="Овог" maxlength="20"><br><br><br>
+                    <input type="text" name="firstName" id="firstName" placeholder="Нэр" maxlength="20"><br><br><br>
+                    <input type="date" name="birthday" id="birthday"><br><br><br>
+                    <input type="checkbox" name="gender" id="gender" value="male">
+                    <label for="male">Эрэгтэй</label> &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="gender" id="gender" value="female">
+                    <label for="female">Эмэгтэй</label><br><br><hr>
+                </td>
+            </tr>
+            <tr align="middle" style="border-bottom: 0.7px solid rgb(174, 173, 173);">
+                <td></td>
+                <td>
+                    <label for="birthPlace"><strong>Төрсөн газар</strong></label><br><br><br>
+                    <label for="phoneNumber"><strong>Утасны дугаар</strong></label><br><br><br>
+                    <label for="email"><strong>Майл хаяг</strong></label><br><br><br>
+                    <label for="url"><strong>FB хаяг</strong></label><br>
+                </td>
+                <td>
+                    <br><br><input type="text" name="birthPlace" id="birthPlace" placeholder="Төрсөн газар" maxlength="100"><br><br><br>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Утасны дугаар" pattern="[0-9]{4} - [0-9]{4}" maxlength="8"><br><br><br>
+                    <input type="email" name="email" id="email" placeholder="Майл хаяг"><br><br><br>
+                    <input type="url" name="fbAddress" id="fbAddress" placeholder="FB хаяг линкээр оруулна уу"><br><br>
+                    <input type="hidden" id="custId" name="custId" value="Hidden's value">
+                </td>
+            </tr>
+            <tr align="middle">
+                <td></td>
+                <td>
+                    <label for="address"><strong>Гэрийн хаяг</strong></label>
+                </td>
+                <td>
+                    <textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+                    
+                </td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td align="middle">
+                    <label for="year" id="year" name="year" value="year"><strong>Kурс</strong></label>
+                </td>
+                <td align="middle">
+                    <hr>
+                    <input type="radio" id="year" name="year" value="1stYear">
+                    <label for="radio" id="year" name="year">1-р курс</label>&nbsp;&nbsp;
+                    <input type="radio" id="year" name="year" value="2ndYear">
+                    <label for="radio" id="year" name="year">2-р курс</label>&nbsp;&nbsp;
+                    <input type="radio" id="year" name="year" value="3rdYear">
+                    <label for="radio" id="year" name="year">3-р курс</label>&nbsp;&nbsp;
+                    <input type="radio" id="year" name="year" value="4thYear">
+                    <label for="radio" id="year" name="year">4-р курс</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="middle">
+                    <label for="sector" id="sector" name="sector" value="sector"><strong>Салбар</strong></label>
+                </td>
+                <td>
+                    <select name="sector" id="sector">
+                        <option value="itSector">Мэдээллийн технологийн салбар</option>
+                        <option value="comunicationSector">Холбооны салбар</option>
+                        <option value="electronicSector">Электроникийн салбар</option>
+                        <option value="computerScienceSector">Компьютерийн ухааны салбар</option>
+                        
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="middle">
+                    <label for="degree" id="degree" name="degree" value="degree"><strong>Хөтөлбөр</strong></label>
+                </td>
+                <td>
+                    <select name="Majors" id="Majors">
+                        <option value="SoftwareEnginner">Програм хангамж</option>
+                        <option value="Artificial intelligence">Хиймэл оюун ухаан</option>
+                        <option value="dataSience">Өгөгдлийн ухаан</option>
+                        <option value="RobotAndAI">Робот ба Хиймэл оюун ухаан</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2" align="middle">
+                    <table width="650" bgcolor="white" border="1px" id="hicheel-songolt" >
+                        <tr>
+                            <td>Хичээль</td>
+                            <td>Хич.цаг</td>
+                            <td>Багшийн нэр</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="lessson1" id="lesson1">
+                                    <option value="Физик II, S.PHM102">Физик II, S.PHM102 </option>
+                                    <option value="Магадлалын онол ба математик статистик, S.PSM201">Магадлалын онол ба математик статистик, S.PSM201 </option>
+                                    <option value="Веб зохиомж, F.ITM202">Веб зохиомж, F.ITM202</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="time" id="timeLesson1">
+                                    <option value="1-1">1-1</option>
+                                    <option value="2-4">2-4</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="teacher" id="teacherLesson1">
+                                    <option value="Т.Энхтуяа F.PH52">Т.Энхтуяа F.PH52</option>
+                                    <option value="Р.Чойсүрэн E.MT45">Р.Чойсүрэн E.MT45</option>
+                                    <option value="Ө.СҮХ-ОЧИР D.IS04">Ө.СҮХ-ОЧИР D.IS04</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="button" value="хүснэгтэд мөр нэмэх" onclick="addRow()">
+                </td>
+            </tr>
+            <tr><td></td><td></td><td align="middle"><button id="submit">submit</button>&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Reset"></td></tr>
+            
+            
+        </table>
+        <br> <br> <br>
+    </form>
+
+    <h2>Submitted Information</h2>
+    <table width="900px"  bgcolor="lightyellow" id="CV">
+        <tr align="middle">
+            <td><img src="images.jpeg-22.jpg" alt="LOGO" width="90" height="90"></td>
+            <td></td>
+            <td colspan="5" heigh="90px">Дэгдээхэй Их Сургуулийн <br> Оюутаны Хувийн мэдээллийн маягт <hr></td>
+            <td width="150px"></td>
+        </tr>
+        <tr align="middle">
+            <td></td>
+            <td>
+                <label for="img"><strong>Цээж зураг</strong></label><br>
+            </td>
+            <td>
+                <img src="./4.webp" alt="img" width="100px"><br><br>
+            </td>
+        </tr>
+        <tr><td></td><td><div id="title-studentCode"></div></td><td><div id="value-studentCode"></div></td></tr>
+        <tr><td></td><td><div id="title-sureName"></div></td><td><div id="value-sureName"></div></td></tr>
+        <tr><td></td><td><div id="title-lastName"></div></td><td><div id="value-lastName"></div></td></tr>
+        <tr><td></td><td><div id="title-firstName"></div></td><td><div id="value-firstName"></div></td></tr>
+        <tr><td></td><td><div id="title-birthday"></div></td><td><div id="value-birthday"></div></td></tr>
+        <tr><td></td><td><div id="title-gender"></div></td><td><div id="value-gender"></div></td></tr>
+        <tr><td></td><td><div id="title-birthPlace"></div></td><td><div id="value-birthPlace"></div></td></tr>
+        <tr><td></td><td><div id="title-phone"></div></td><td><div id="value-phone"></div></td></tr>
+        <tr><td></td><td><div id="title-email"></div></td><td><div id="value-email"></div></td></tr>
+        <tr><td></td><td><div id="title-fbAddress"></div></td><td><div id="value-fbAddress"></div></td></tr>
+        <tr><td></td><td><div id="title-Address"></div></td><td><div id="value-Address"></div></td></tr>
+        
+    </table>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form values
+        let studentCode = document.getElementById("studentCode").value;
+        let sureName = document.getElementById("surName").value;
+        let lastName = document.getElementById("lastName").value;
+        let firstName = document.getElementById("firstName").value;
+        let birthday = document.getElementById("birthday").value;
+        let gender = document.getElementById("gender").value;
+        let birthPlace = document.getElementById("birthPlace").value;
+        let phoneNumber = document.getElementById("phoneNumber").value;
+        let email = document.getElementById("email").value;
+        let fbAddress = document.getElementById("fbAddress").value;
+        let address = document.getElementById("address").value;
+        let year = document.getElementById("year").value;
+        let sector = document.getElementById("sector").value;
+        let majors = document.getElementById("Majors").value;
+
+
+
+        var title = document.getElementById("title-studentCode");
+        var value = document.getElementById("value-studentCode");
+        title.innerText = "Оюутаны код";
+        value.innerText = studentCode;
+               
+        var title = document.getElementById("title-sureName");
+        var value = document.getElementById("value-sureName");
+        title.innerText = "Ургийн овог";
+        value.innerText = sureName;
+        
+        var title = document.getElementById("title-lastName");
+        var value = document.getElementById("value-lastName");
+        title.innerText = "Овог";
+        value.innerText = lastName;
+        
+        var title = document.getElementById("title-firstName");
+        var value = document.getElementById("value-firstName");
+        title.innerText = "Нэр";
+        value.innerText = firstName;
+                   
+        var title = document.getElementById("title-birthDay");
+        var value = document.getElementById("value-birthDay");
+        title.innerText = "Төрсөн өдөр";
+        value.innerText = birthDay;
+        
+        var title = document.getElementById("title-gender");
+        var value = document.getElementById("value-gender");
+        title.innerText = "Хүйс";
+        value.innerText = gender;
+        
+        var title = document.getElementById("title-birthPlace");
+        var value = document.getElementById("value-birthPlace");
+        title.innerText = "Төрсөн газар";
+        value.innerText = birthPlace;
+        
+        var title = document.getElementById("title-phoneNumber");
+        var value = document.getElementById("value-phoneNumber");
+        title.innerText = "Утасны дугаар";
+        value.innerText = phoneNumber;
+        
+        var title = document.getElementById("title-email");
+        var value = document.getElementById("value-email");
+        title.innerText = "Майл хаяг";
+        value.innerText = email;
+        
+        var title = document.getElementById("title-fbAddress");
+        var value = document.getElementById("value-fbAddress");
+        title.innerText = "FB хаяг";
+        value.innerText = fbAddress;
+        
+        var title = document.getElementById("title-Address");
+        var value = document.getElementById("value-Address");
+        title.innerText = "Гэрийн хаяг";
+        value.innerText = address;
+
+            // Reset the form after submission
+            document.getElementById('myForm').reset();
+        });
+
+    </script>
+</body>
+</html>

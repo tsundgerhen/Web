@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bubble shooting game</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        #display {
+            background: #000;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .bubble {
+            position: absolute;
+            background-color: blue;
+            width: 69px;
+            height: 69px;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        .bubble div {
+            position: absolute;
+            left: 20%;
+            top: 20%;
+            background-color: white;
+            width: 19px;
+            height: 19px;
+            border-radius: 10px;
+        }
+        .info {
+            width: 350px;
+            height: 5%;
+            display: flex;
+            flex-direction: row;
+            background-color: aliceblue;
+        }
+        .info div{
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .gameOverDisplay {
+            width: 70%;
+            height: 70%;
+            background-color: antiquewhite;
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .gameOverDisplay .GameOverText {
+            font-size: 60px;
+            margin-top: 200px;
+        }
+        .gameOverDisplay div {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        .gameOverDisplay button {
+            margin-top: 20px;
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        gameRestart();
+        function gameRestart(){
+            var display = document.createElement("div");
+            display.id = "display";
+            document.body.appendChild(display);
+            var bubbles = [];
+            let bubbleCount = 5;
+            var info = document.createElement("div");
+            var lvl = document.createElement("div");
+            var bubbleCountDisplay = document.createElement("div")
+            var time = document.createElement("div");
+            time.innerText = "time: 10 sec" ;
+            info.appendChild(lvl);
+            info.appendChild(bubbleCountDisplay);
+            info.appendChild(time);
+            var roundStartTime =  new Date();
+            var startTime;
+            display.appendChild(info);
+            roundStart();
+            info.className = "info";
+            function roundStart() { 
+                roundStartTime =  new Date();
+                startTime = roundStartTime.getMinutes() * 60 + roundStartTime.getSeconds();
+                var bubbleCurrentCount = bubbleCount;
+                lvl.innerText = "Lvl: " + ((bubbleCount - 3) / 2);
+                bubbleCountDisplay.innerText = "Bubble count: " + bubbleCount.toString();
+                console.log("round start time: " + startTime)
+                function popBubble(event) {
+                    var bubble = event.currentTarget;
+                    var poppingAudio = new Audio();
+                    poppingAudio.src = "./balloon-pop-48030.mp3";
+                    poppingAudio.play();
+                    //bubbles.splice(bubbles.indexOf(bubble), 1);
+                    bubbleCurrentCount --;
+                    bubble.parentNode.removeChild(bubble);
+                    bubbleCountDisplay.innerText = "Bubble count: " + bubbleCurrentCount.toString();
+                    console.log(bubbleCurrentCount)
+                    if (bubbleCurrentCount === 0) {
+                        bubbleCount += 2; 
+                        // roundStartTime =  new Date();
+                        // startTime = roundStartTime.getMinutes() * 60 + roundStartTime.getSeconds();
+                        roundStart();
+                    }
+                }
+
+                for (var i = 0; i < bubbleCount; i++) {
+                    var bubble = document.createElement("div");
+                    var light = document.createElement("div");
+                    bubble.className = "bubble";
+                    bubble.appendChild(light);
+
+                    var size = Math.round(Math.random() * 14 + 55);
+                    bubble.style.width = size + "px";
+                    bubble.style.height = size + "px";
+                    light.style.width = (size / 4.5) + "px";
+                    light.style.height = (size / 4.5) + "px";
+                    bubble.style.left = Math.random() * (display.clientWidth - 69) + "px";
+                    bubble.style.top = Math.random() * (display.clientHeight - 69) + "px";
+
+                    bubble.style.backgroundColor = "rgba("+Math.round(Math.random()*256)+", "+Math.round(Math.random()*256)+", "+Math.round(Math.random()*256)+")";
+
+                    bubble.addEventListener("click", popBubble);
+                    display.appendChild(bubble);
+                    var bubbleObj = {
+                        element: bubble,
+                        dx: Math.round(Math.random()),
+                        dy: Math.round(Math.random())
+                    };
+                    bubbles.push(bubbleObj);
+                }
+                function directionChanger(bubbleObj){
+                    if(parseInt(bubbleObj.element.style.left) >= display.clientWidth - bubbleObj.element.offsetWidth) {
+                        bubbleObj.dx = 1; 
+                    }
+                    else if(parseInt(bubbleObj.element.style.left) <= 0) {
+                        bubbleObj.dx = 0;
+                    }
+                    if(parseInt(bubbleObj.element.style.top) >= display.clientHeight - bubbleObj.element.offsetHeight) {
+                        bubbleObj.dy = 1;
+                    }
+                    else if(parseInt(bubbleObj.element.style.top) <= 0) {
+                        bubbleObj.dy = 0;
+                    }
+                }
+                function checkGameOver(){
+                    var curretDate = new Date();
+                    var currentTime = curretDate.getMinutes() * 60 + curretDate.getSeconds();
+                    time.innerText = "time: " + (currentTime - startTime).toString() + " sec";
+                    if (currentTime - 10 >= startTime) {
+                        console.log(currentTime);
+                        console.log("gameOver");
+                        var gameOverDisplay = document.createElement("div")
+                        gameOverDisplay.className = "gameOverDisplay";
+                        var lvlGameOver = document.createElement("div");
+                        lvlGameOver.innerText = "Lvl: " + ((bubbleCount - 3) / 2);
+                        var restartButton = document.createElement("button");
+                        restartButton.innerText = "restart";
+                        restartButton.className = "restartButton";
+                        var GameOverText = document.createElement("div");
+                        GameOverText.innerText = "Game Over";
+                        GameOverText.className = "GameOverText"
+                        gameOverDisplay.appendChild(GameOverText);
+                        gameOverDisplay.appendChild(lvlGameOver);
+                        gameOverDisplay.appendChild(restartButton);
+                        display.appendChild(gameOverDisplay);
+
+                        restartButton.addEventListener("click", function(){
+                            document.body.removeChild(display);
+                            while (display.firstChild) {
+                                display.removeChild(display.firstChild);
+                            }
+                            gameRestart();
+                        });
+                        return true;
+                    }
+                    return false;
+                }
+                function move() {
+                    if(checkGameOver()) clearInterval(gameInterval);
+                    bubbles.forEach(function(bubbleObj) {
+                        if(bubbleObj.dx === 0) {
+                            bubbleObj.element.style.left = parseInt(bubbleObj.element.style.left) + 5 + "px";
+                        }
+                        else {
+                            bubbleObj.element.style.left = parseInt(bubbleObj.element.style.left) - 5 + "px";
+                        }
+                        if(bubbleObj.dy === 0) {
+                            bubbleObj.element.style.top = parseInt(bubbleObj.element.style.top) + 5 + "px";
+                        }
+                        else {
+                            bubbleObj.element.style.top = parseInt(bubbleObj.element.style.top) - 5 + "px";
+                        }
+                        directionChanger(bubbleObj);
+                    });
+                }
+                const gameInterval = setInterval(move, 100);
+            }
+        }
+    </script>
+</body>
+</html>

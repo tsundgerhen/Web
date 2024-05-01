@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>лабораторын ажил 8</title>
+    </head>
+
+    <body>
+        <div id="submittedData">
+            <!-- Submitted data will be displayed here -->
+        </div>
+    
+        <script>
+            function displaySubmittedData(event) {
+                // Prevent the default form submission
+                event.preventDefault();
+    
+                var studentCode = document.getElementById("studentCode").value;
+                var surName = document.getElementById("surName").value;
+                var lastName = document.getElementById("lastName").value;
+                // //var firstName = document.getElementById("firstName").value;
+                // var birthday = document.getElementById("birthday").value;
+                // var gender = document.querySelector('input[name="gender"]:checked').value;
+                // var birthPlace = document.getElementById("birthPlace").value;
+                // var phoneNumber = document.getElementById("phoneNumber").value;
+                // var email = document.getElementById("email").value;
+                // var fbAddress = document.getElementById("fbAddress").value;
+                // var address = document.getElementById("address").value;
+                // var year = document.getElementById("year").value;
+                // var sector = document.getElementById("sector").value;//
+    
+                // Create a table to display submitted data
+                var table = document.createElement("table");
+                var tbody = document.createElement("tbody");
+
+                var row = document.createElement("tr");
+                var cell1 = document.createElement("td");
+                var cell2 = document.createElement("td");
+                var cell3 = document.createElement("td");
+                var cell4 = document.createElement("td");
+                var img = document.createElement("img");
+                img.src = "images.jpeg-22.jpg";
+                cell1.appendChild(img);
+                cell3.innerText = "Дэгдээхэй Их Сургуулийн Оюутаны Хувийн мэдээллийн маягт"
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                tbody.appendChild(row);
+                var row2 = document.createElement("tr");
+                var cell1 = document.createElement("td");
+                var cell2 = document.createElement("td");
+                var cell3 = document.createElement("td");
+                var cell4 = document.createElement("td");
+                var img = document.createElement("img");
+                img.src = "4.webp";
+                cell3.appendChild(img);
+                cell2.innerText = "Цээж зураг"
+                row2.appendChild(cell1);
+                row2.appendChild(cell2);
+                row2.appendChild(cell3);
+                row2.appendChild(cell4);
+                tbody.appendChild(row2);
+                // Add data to the table
+                var fields = ["Оюутаны код", "Ургийн овог", "Овог", /*"Нэр", "Төрсөн өдөр", "Хүйс", "Төрсөн газар", "Утасны дугаар", "Майл хаяг", "FB хаяг", "Гэрийн хаяг"*/];
+                var values = [studentCode, surName, lastName, /*firstName, birthday, gender, birthPlace, phoneNumber, email, fbAddress, address*/];
+                for (var i = 0; i < fields.length; i++) {
+                    var row = document.createElement("tr");
+                    var cell1 = document.createElement("td");
+                    var cell2 = document.createElement("td");
+                    cell1.textContent = fields[i];
+                    cell2.textContent = values[i];
+                    row.appendChild(cell1);
+                    row.appendChild(cell2);
+                    tbody.appendChild(row);
+                }
+    
+                // Append tbody to table
+                table.appendChild(tbody);
+    
+                // Clear any previously displayed data
+                var submittedData = document.getElementById("submittedData");
+                submittedData.innerHTML = "";
+    
+                // Append table to submittedData div
+                submittedData.appendChild(table);
+            }
+
+
+            function addRow() {
+                var lessonName = document.getElementById("lesson1").value;
+                var lessonTime = document.getElementById("timeLesson1").value;
+                var lessonTeacher = document.getElementById("teacherLesson1").value;
+
+                var tableBody = document.getElementById("hicheel-songolt");
+                var newRow = tableBody.insertRow();
+                var lesson = newRow.insertCell(0);
+                var time = newRow.insertCell(1);
+                var teacher = newRow.insertCell(2);
+
+                lesson.innerHTML = lessonName;
+                time.innerHTML = lessonTime;
+                teacher.innerHTML = lessonTeacher;
+            }
+        </script>
+    
+        <form id="registrationForm" onsubmit="displaySubmittedData(event)">
+            <table width="900px"  bgcolor="lightyellow" border = "1px">
+                <tr align="middle">
+                    <td><img src="images.jpeg-22.jpg" alt="LOGO" width="90" height="90"></td>
+                    <td></td>
+                    <td colspan="5" heigh="90px">Дэгдээхэй Их Сургуулийн <br> Оюутаны Хувийн мэдээллийн маягт <hr></td>
+                    <td width="150px"></td>
+                </tr>
+                <tr align="middle">
+                    <td></td>
+                    <td>
+                        <label for="img"><strong>Цээж зураг</strong></label><br>
+                    </td>
+                    <td>
+                        <img src="person.png" alt="img upload" width="100px"><br><br>
+                        <input type="file" name="img" id="img"><hr>
+                    </td>
+                </tr>
+                <tr align="middle">
+                    <td></td>
+                    <td>
+                        <label for="studentCode" ><strong>Оюутаны код</strong></label><br><br><br>
+                        <label for="sureName"><strong>Ургийн овог</strong></label><br><br><br>
+                        <label for="lastName"><strong>Овог</strong></label><br><br><br>
+                        <label for="firstName"><strong>Нэр</strong></label><br><br><br>
+                        <label for="birthday"><strong>Төрсөн өдөр</strong></label><br><br><br>
+                        <label for="gender"><strong>Хүйс</strong></label><br>
+                    </td>
+                    <td>
+                        <br><br><input type="text" name="studentCode" id="studentCode" width="300px" placeholder="Оюутаны код" maxlength="10"><br><br><br>
+                        <input type="text" name="surName" id="surName" placeholder="Ургийн овог" maxlength="20"><br><br><br>
+                        <input type="text" name="lastName" id="lastName" placeholder="Овог" maxlength="20"><br><br><br>
+                        <input type="text" name="firstName" id="firstName" placeholder="Нэр" maxlength="20"><br><br><br>
+                        <input type="date" name="birthday" id="birthday"><br><br><br>
+                        <input type="checkbox" name="gender" id="gender" value="male">
+                        <label for="male">Эрэгтэй</label> &nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="gender" id="gender" value="female">
+                        <label for="female">Эмэгтэй</label><br><br><hr>
+                    </td>
+                </tr>
+                <tr align="middle" style="border-bottom: 0.7px solid rgb(174, 173, 173);">
+                    <td></td>
+                    <td>
+                        <label for="birthPlace"><strong>Төрсөн газар</strong></label><br><br><br>
+                        <label for="phoneNumber"><strong>Утасны дугаар</strong></label><br><br><br>
+                        <label for="email"><strong>Майл хаяг</strong></label><br><br><br>
+                        <label for="url"><strong>FB хаяг</strong></label><br>
+                    </td>
+                    <td>
+                        <br><br><input type="text" name="birthPlace" id="birthPlace" placeholder="Төрсөн газар" maxlength="100"><br><br><br>
+                        <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Утасны дугаар" pattern="[0-9]{4} - [0-9]{4}" maxlength="8"><br><br><br>
+                        <input type="email" name="email" id="email" placeholder="Майл хаяг"><br><br><br>
+                        <input type="url" name="fbAddress" id="fbAddress" placeholder="FB хаяг линкээр оруулна уу"><br><br>
+                        <input type="hidden" id="custId" name="custId" value="Hidden's value">
+                    </td>
+                </tr>
+                <tr align="middle">
+                    <td></td>
+                    <td>
+                        <label for="address"><strong>Гэрийн хаяг</strong></label>
+                    </td>
+                    <td>
+                        <textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td align="middle">
+                        <label for="year" id="year" name="year" value="year"><strong>Kурс</strong></label>
+                    </td>
+                    <td align="middle">
+                        <hr>
+                        <input type="radio" id="year" name="year" value="1stYear">
+                        <label for="radio" id="year" name="year">1-р курс</label>&nbsp;&nbsp;
+                        <input type="radio" id="year" name="year" value="2ndYear">
+                        <label for="radio" id="year" name="year">2-р курс</label>&nbsp;&nbsp;
+                        <input type="radio" id="year" name="year" value="3rdYear">
+                        <label for="radio" id="year" name="year">3-р курс</label>&nbsp;&nbsp;
+                        <input type="radio" id="year" name="year" value="4thYear">
+                        <label for="radio" id="year" name="year">4-р курс</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="middle">
+                        <label for="sector" id="sector" name="sector" value="sector"><strong>Салбар</strong></label>
+                    </td>
+                    <td>
+                        <select name="sector" id="sector">
+                            <option value="itSector">Мэдээллийн технологийн салбар</option>
+                            <option value="comunicationSector">Холбооны салбар</option>
+                            <option value="electronicSector">Электроникийн салбар</option>
+                            <option value="computerScienceSector">Компьютерийн ухааны салбар</option>
+                            
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="middle">
+                        <label for="degree" id="degree" name="degree" value="degree"><strong>Хөтөлбөр</strong></label>
+                    </td>
+                    <td>
+                        <select name="Majors" id="Majors">
+                            <option value="SoftwareEnginner">Програм хангамж</option>
+                            <option value="Artificial intelligence">Хиймэл оюун ухаан</option>
+                            <option value="dataSience">Өгөгдлийн ухаан</option>
+                            <option value="RobotAndAI">Робот ба Хиймэл оюун ухаан</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" align="middle">
+                        <table width="650" bgcolor="white" border="1px" id="hicheel-songolt" >
+                            <tr>
+                                <td>Хичээль</td>
+                                <td>Хич.цаг</td>
+                                <td>Багшийн нэр</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="lessson1" id="lesson1">
+                                        <option value="Физик II, S.PHM102">Физик II, S.PHM102 </option>
+                                        <option value="Магадлалын онол ба математик статистик, S.PSM201">Магадлалын онол ба математик статистик, S.PSM201 </option>
+                                        <option value="Веб зохиомж, F.ITM202">Веб зохиомж, F.ITM202</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="time" id="timeLesson1">
+                                        <option value="1-1">1-1</option>
+                                        <option value="2-4">2-4</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="teacher" id="teacherLesson1">
+                                        <option value="Т.Энхтуяа F.PH52">Т.Энхтуяа F.PH52</option>
+                                        <option value="Р.Чойсүрэн E.MT45">Р.Чойсүрэн E.MT45</option>
+                                        <option value="Ө.СҮХ-ОЧИР D.IS04">Ө.СҮХ-ОЧИР D.IS04</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="button" value="хүснэгтэд мөр нэмэх" onclick="addRow()">
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td align="middle"><input type="submit" name="submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Reset"></td></tr>
+                
+                
+            </table>
+            <br> <br> <br>
+            
+        </form> <!--end of the first form-->
+        <table width="900px"  bgcolor="lightyellow" id="CV">
+            <tr align="middle">
+                <td><img src="images.jpeg-22.jpg" alt="LOGO" width="90" height="90"></td>
+                <td></td>
+                <td colspan="5" heigh="90px">Дэгдээхэй Их Сургуулийн <br> Оюутаны Хувийн мэдээллийн маягт <hr></td>
+                <td width="150px"></td>
+            </tr>
+            <tr align="middle">
+                <td></td>
+                <td>
+                    <label for="img"><strong>Цээж зураг</strong></label><br>
+                </td>
+                <td>
+                    <img src="./4.webp" alt="img" width="100px"><br><br>
+                </td>
+            </tr>
+            <tr><td></td><td><div id="title-studentCode"></div></td><td><div id="value-studentCode"></div></td></tr>
+            <tr><td></td><td><div id="title-sureName"></div></td><td><div id="value-sureName"></div></td></tr>
+            <tr><td></td><td><div id="title-lastName"></div></td><td><div id="value-lastName"></div></td></tr>
+            <tr><td></td><td><div id="title-firstName"></div></td><td><div id="value-firstName"></div></td></tr>
+            <tr><td></td><td><div id="title-birthday"></div></td><td><div id="value-birthday"></div></td></tr>
+            <tr><td></td><td><div id="title-gender"></div></td><td><div id="value-gender"></div></td></tr>
+            <tr><td></td><td><div id="title-birthPlace"></div></td><td><div id="value-birthPlace"></div></td></tr>
+            <tr><td></td><td><div id="title-phone"></div></td><td><div id="value-phone"></div></td></tr>
+            <tr><td></td><td><div id="title-email"></div></td><td><div id="value-email"></div></td></tr>
+            <tr><td></td><td><div id="title-fbAddress"></div></td><td><div id="value-fbAddress"></div></td></tr>
+            <tr><td></td><td><div id="title-Address"></div></td><td><div id="value-Address"></div></td></tr>
+            
+        </table>
+    </body>
+</html>
